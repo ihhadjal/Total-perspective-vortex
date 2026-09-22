@@ -3,6 +3,7 @@ charset-normalizer==3.5.1
 cloudpickle==3.1.2
 contourpy==1.4.0
 cycler==0.12.1
+darkdetect==0.8.0
 decorator==5.3.1
 fonttools==4.65.0
 idna==3.20

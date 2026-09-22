@@ -121,3 +121,66 @@ EEG ------------------------------------
 
 par exemple: prendre les 4 secondes d'eeg qui suivenet chaque apparition de T1 ou T2
 
+
+QUEST CE QUE UN CHANNEL
+
+un channel correspond a un signal provenant dune electrode EEG
+
+ici on a donc 64 signaux enregistrees au meme temps
+
+
+QUEST CE QUE UN SAMPLE
+
+un sample est une mesure dun signal a un moment donee
+
+
+
+le run dure 125 secondes, mais pendant tout ce temps differentres actions sont faites
+pas que un mouvement de la main ou du oieds mais une combinaison, c'est donc pour ca que les annotations
+rentrent en jeu
+
+
+chaque electrode est mesuree 160 fois / s
+
+donc l'intervale entre deux samples est 1 / 160 = 0.00625s = 6.25ms
+
+
+QUEST CE QUE LE HIGPASS FILTER
+
+un signal EEG est constitue de plusieures frequences superposees (oscillation lente + moyenne + rapide + bruit)
+
+le higpass filter va enlever les signaux en dessous dune certaine valeur
+
+
+DANS NOTRE DATASET POUR LENTRAINEMENT
+
+actuellement nous avons 125s d'enregistrement, lire la totalite de ces 125 secondes pour entrainer le model serait inutile
+
+ce que on veut faire c'est extraire touts les signaux des moments dans l'enregistremnet quand quelque chose se passe
+
+par exemple: 
+
+                    T1
+                      ↓
+EEG ──────────────────────────────────
+
+                   |------|
+                   morceau
+
+on recupere ce morceau et il deviendra une epoch
+
+puis
+
+epoch 1 → T1 → gauche
+epoch 2 → T2 → droite
+epoch 3 → T1 → gauche
+epoch 4 → T2 → droite
+
+et la ca commencera a ressembleer a un vrai dataset de ML
+
+X                  y
+
+EEG epoch 1      gauche
+EEG epoch 2      droite
+EEG epoch 3      gauche
+EEG epoch 4      droite
