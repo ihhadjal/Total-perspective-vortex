@@ -184,3 +184,61 @@ EEG epoch 1      gauche
 EEG epoch 2      droite
 EEG epoch 3      gauche
 EEG epoch 4      droite
+
+
+COMPRENDRE LES FREQUENCES DANS NOTRE DATASET
+
+un signal dune electrode ressemble a ca
+
+C3
+
+    /\      /\      /\
+___/  \____/  \____/  \___
+
+
+si un motif complet se repete 10 fois en une seconde on dit que le signal a une frequence de 10Hz donc 10 oscillations
+par seconde
+
+malheuresment notre EEG nest pas compose dune seule frequence mais de plusieurs conceptuellement il y a:
+
+singal lent
+
+signal moyen
+
+signal rapide
+
+bruit
+
+toutes ces frequences sont reproduite dans le raw, notre but dans un premier temps est de "nettoyer" le raw
+pour recuperer seulement les frequences qui nous sont vraiment utiles
+
+
+en neuroscience on distingue les bandes comme:
+
+Delta     ~ 0.5 - 4 Hz
+Theta     ~ 4 - 8 Hz
+Alpha     ~ 8 - 13 Hz
+Beta      ~ 13 - 30 Hz
+
+
+pour notre projet deux bandes sont interessantes:
+
+le rythme Mu: 8-13HZ -> il est particulierement present autours des zones sensorimotrices
+
+le rythme Beta: 13-30Hz -> egalement lie a l'activite motrice
+
+
+lorsque une perosnne fait/immagine un mouvemnet la puissance de ces rythmes peut changer autours du
+cortex moteur
+
+donc la plage qui nous interesse est de 8 a 30hz car ce sont ces plages la qui sont actives autours des zones
+sensorimotrices
+
+
+
+GRAPHE PSD (dispersion des channels EEG, puissance en rapport a la frequence)
+
+![alt text](image.png)
+
+ce graphe sert a montrer quelles sont les frequences plus presentes dans le EEG, ici on a notamment plus de frequences basses
+que frequences hautes
