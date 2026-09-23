@@ -235,10 +235,15 @@ donc la plage qui nous interesse est de 8 a 30hz car ce sont ces plages la qui s
 sensorimotrices
 
 
+GRAPHE PSD -> graphe pour voir quelles frequences ont plus de puissance dans le EEG
 
-GRAPHE PSD (dispersion des channels EEG, puissance en rapport a la frequence)
+ce graphe nous sert notamment a choisir quelles bandes frequentielles ont doit garder pour le filtrage
+si on voit par exemple que les basses frequences sont celles qui ont le plus de puissance, on va filtrer pour recuperer
+que les plages necessaires (ici 8 a 30hz)
 
-![alt text](image.png)
 
-ce graphe sert a montrer quelles sont les frequences plus presentes dans le EEG, ici on a notamment plus de frequences basses
-que frequences hautes
+{'T0': 1, 'T1': 2, 'T2': 3}
+
+1 = T0 = repos
+2 = T1 = main gauche
+3 = T2 = main droite
